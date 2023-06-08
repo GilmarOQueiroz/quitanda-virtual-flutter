@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'src/auth/sign_in_screen.dart';
+import 'package:hortifrute/src/pages/auth/sign_in_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
