@@ -86,19 +86,72 @@ class _ProfileTabState extends State<ProfileTab> {
       context: context,
       builder: (context) {
         return Dialog(
-          child: Column(
-            children: const [
-              CustomTextField(
-                icon: Icons.lock,
-                label: 'Senha atual',
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Titulo
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 12),
+                      child: Text(
+                        'Atualização de senha',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Senha atual
+                    const CustomTextField(
+                      isSecret: true,
+                      icon: Icons.lock,
+                      label: 'Senha atual',
+                    ),
+                    // Nova senha
+                    const CustomTextField(
+                      isSecret: true,
+                      icon: Icons.lock_outline,
+                      label: 'Nova senha',
+                    ),
+                    // Confirmar nova senha
+                    const CustomTextField(
+                      isSecret: true,
+                      icon: Icons.lock_outline,
+                      label: 'Confirmar nova senha',
+                    ),
+                    //Botão de confirmação
+                    SizedBox(
+                      height: 45,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Text('Atualizar'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              CustomTextField(
-                icon: Icons.lock,
-                label: 'Nova senha',
-              ),
-              CustomTextField(
-                icon: Icons.lock,
-                label: 'Confirmar nova senha',
+              Positioned(
+                top: 5,
+                right: 5,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(Icons.close),
+                ),
               ),
             ],
           ),
