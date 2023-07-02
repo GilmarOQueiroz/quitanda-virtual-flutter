@@ -44,7 +44,27 @@ class OrderStatusWidget extends StatelessWidget {
             title: 'Pix Vencido',
             backgroundColor: Colors.red,
           ),
-        ]
+        ] else ...[
+          _StatusDot(
+            isActive: currentStatus >= 2,
+            title: 'Pagamento',
+          ),
+          const _CustomDivider(),
+          _StatusDot(
+            isActive: currentStatus >= 3,
+            title: 'Preparando',
+          ),
+          const _CustomDivider(),
+          _StatusDot(
+            isActive: currentStatus >= 4,
+            title: 'Envio',
+          ),
+          const _CustomDivider(),
+          _StatusDot(
+            isActive: currentStatus == 5,
+            title: 'Entregue',
+          ),
+        ],
       ],
     );
   }
