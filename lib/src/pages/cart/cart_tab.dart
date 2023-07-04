@@ -1,5 +1,3 @@
-// ignore_for_file: library_prefixes
-
 import 'package:flutter/material.dart';
 import 'package:hortifrute/src/models/cart_item_model.dart';
 import 'package:hortifrute/src/services/utils_services.dart';
@@ -21,6 +19,7 @@ class _CartTabState extends State<CartTab> {
   void removeItemFromCart(CartItemModel cartItem) {
     setState(() {
       appData.cartItems.remove(cartItem);
+      utilsServices.showToast(message: '${cartItem.item.itemName} removido(a) do carrinho');
     });
   }
 
@@ -40,7 +39,7 @@ class _CartTabState extends State<CartTab> {
       ),
       body: Column(
         children: [
-
+          // Lista de itens do carrinho
           Expanded(
             child: ListView.builder(
               itemCount: appData.cartItems.length,
@@ -52,6 +51,7 @@ class _CartTabState extends State<CartTab> {
               },
             ),
           ),
+          // Total e botão de concluir o pedido
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -112,12 +112,18 @@ class _CartTabState extends State<CartTab> {
                             );
                           },
                         );
+                      } else {
+                        utilsServices.showToast(
+                          message: 'Pedido não confirmado',
+                          isError: true,
+                        );
                       }
                     },
                     child: const Text(
                       'Concluir pedido',
                       style: TextStyle(
                         fontSize: 18,
+                        color: Colors.white
                       ),
                     ),
                   ),

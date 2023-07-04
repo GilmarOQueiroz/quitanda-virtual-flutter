@@ -33,7 +33,12 @@ class BaseScreen extends StatefulWidget {
         onTap: (index) {
           setState(() {
             currentIndex = index;
-            pageController.jumpToPage(index);
+            //pageController.jumpToPage(index);
+            pageController.animateToPage(
+              index,
+              duration: const Duration(milliseconds: 900),
+              curve: Curves.bounceInOut,
+            );
           });
         },
         type: BottomNavigationBarType.fixed,
