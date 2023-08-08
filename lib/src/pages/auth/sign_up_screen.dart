@@ -3,8 +3,8 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import '../../config/custom_colors.dart';
 import '../common_widgets/custom_text_field.dart';
 
-class SignScreen extends StatelessWidget {
-  SignScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({Key? key}) : super(key: key);
 
   final cpfFormatter = MaskTextInputFormatter(
     mask: '###.###.###-##',
