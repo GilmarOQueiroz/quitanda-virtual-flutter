@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hortifrute/src/pages/splash/splash_screen.dart';
 import 'package:hortifrute/src/pages_routes/app_pages.dart';
 
 
