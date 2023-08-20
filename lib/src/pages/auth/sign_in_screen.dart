@@ -5,15 +5,21 @@ import 'package:hortifrute/src/pages/common_widgets/app_name_widget.dart';
 import '../../config/custom_colors.dart';
 import '../../pages_routes/app_pages.dart';
 import '../common_widgets/custom_text_field.dart';
+import 'controller/auth_controller.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
 
+  //Comtrolador de campos
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: CustomColors.customSwatchColor,
       body: SingleChildScrollView(
@@ -76,6 +82,7 @@ class SignInScreen extends StatelessWidget {
                     children: [
                       // E-mail
                       CustomTextField(
+                        controller: emailController,
                         icon: Icons.email,
                         label: 'E-Mail',
                         validator: (email){
@@ -87,6 +94,7 @@ class SignInScreen extends StatelessWidget {
                 
                       //Senha
                       CustomTextField(
+                        controller: passwordController,
                         icon: Icons.lock,
                         label: 'Senha',
                         isSecret: true,
@@ -104,25 +112,39 @@ class SignInScreen extends StatelessWidget {
                       // Botão de entrar
                       SizedBox(
                         height: 50,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                          ),
-                          onPressed: () {
-                            if(_formKey.currentState!.validate()){
-                              print('Todos os campos estão válidos!');
-                            }else{
-                              print('Campos não válidos!');
-                            }
+                        child: GetX<AuthController>(
+                          builder: (authcontroller) {
+                            return ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                              ),
+                          onPressed:
+                            authcontroller.isLoading.value 
+                            ? null 
+                            : () {
+                              FocusScope.of(context).unfocus();
+                              if(_formKey.currentState!.validate()){
+                               String email = emailController.text;
+                                String password = passwordController.text;
+
+                                authcontroller.signIn(email: email, password: password);
+                              }else{
+                                print('Campos não válidos!');
+                              }
                             //Get.offNamed(PagesRoutes.baseRoute);
-                          },
-                          child: const Text('Entrar',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
+                            },
+                          child: authcontroller.isLoading.value 
+                            ? const CircularProgressIndicator() 
+                            : const Text(
+                                'Entrar',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ),
+                              ),
+                            );
+                          }
                         ),
                       ),
                 
