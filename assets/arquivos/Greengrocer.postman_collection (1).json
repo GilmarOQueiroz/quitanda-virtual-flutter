@@ -1,0 +1,634 @@
+{
+	"info": {
+		"_postman_id": "82844dc7-3b78-4480-8ecd-e97798e37e5c",
+		"name": "Greengrocer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12935316"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Logar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Configurar token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"token\", jsonData.result.token);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/login",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"login"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"\",\r\n\t\"password\": \"\",\r\n\t\"fullname\": \"\",\r\n\t\"phone\": \"(99) 99999-9999\",\r\n\t\"cpf\": \"123.456.789-10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/signup",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"signup"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Mudar senha",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"currentPassword\": \"\",\r\n    \"newPassword\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/change-password",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"change-password"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Validar token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/validate-token",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"validate-token"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Resetar senha",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/reset-password",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"reset-password"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Buscar itens",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/get-cart-items",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"get-cart-items"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"\",\r\n    \"quantity\": 1,\r\n    \"productId\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/add-item-to-cart",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"add-item-to-cart"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar quantidade do item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "r:13fe73fdd34f4aa27bd117ccefd071c3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cartItemId\": \"\",\r\n    \"quantity\": 0\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/modify-item-quantity",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"modify-item-quantity"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Buscar produtos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\": 0,\r\n    \"title\": null,\r\n    \"categoryId\": \"5mjkt5ERRo\",\r\n    \"itemsPerPage\": 6\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/get-product-list",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"get-product-list"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar categorias",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/get-category-list",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"get-category-list"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Finalizar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"total\": 0.02\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/checkout",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"checkout"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar pedidos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/get-orders",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"get-orders"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar itens do pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "wK7GcEjr2V4br5q5mlR1kybQ5dvxMFDX0qtE1d6Y",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "2kahi62fkWePLWAwC7k8aMrtQkobogcgkruMxbeB",
+								"type": "text"
+							},
+							{
+								"key": "X-Parse-Session-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": \"YR6FG9T2oH\"\r\n}"
+						},
+						"url": {
+							"raw": "https://parseapi.back4app.com/functions/get-order-items",
+							"protocol": "https",
+							"host": [
+								"parseapi",
+								"back4app",
+								"com"
+							],
+							"path": [
+								"functions",
+								"get-order-items"
+							]
+						},
+						"description": "Busca de categorias"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -44,6 +44,8 @@ dependencies:
   fluttertoast: ^8.2.2
   shimmer: ^3.0.0
   get: ^4.6.5
+  dio: ^5.3.2
+  
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_test:
