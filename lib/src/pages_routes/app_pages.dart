@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:hortifrute/src/pages/auth/sign_up_screen.dart';
+import 'package:hortifrute/src/pages/auth/view/sign_in_screen.dart';
+import 'package:hortifrute/src/pages/auth/view/sign_up_screen.dart';
 import 'package:hortifrute/src/pages/splash/splash_screen.dart';
-import '../pages/auth/sign_in_screen.dart';
 import '../pages/base/base_screen.dart';
 
 abstract class AppPages{

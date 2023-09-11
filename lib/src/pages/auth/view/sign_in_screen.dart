@@ -1,11 +1,12 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hortifrute/src/config/custom_colors.dart';
+import 'package:hortifrute/src/pages/auth/controller/auth_controller.dart';
 import 'package:hortifrute/src/pages/common_widgets/app_name_widget.dart';
-import '../../config/custom_colors.dart';
-import '../../pages_routes/app_pages.dart';
-import '../common_widgets/custom_text_field.dart';
-import 'controller/auth_controller.dart';
+import 'package:hortifrute/src/pages/common_widgets/custom_text_field.dart';
+import 'package:hortifrute/src/pages_routes/app_pages.dart';
+
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key? key}) : super(key: key);
